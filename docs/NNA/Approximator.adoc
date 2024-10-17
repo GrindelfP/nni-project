@@ -1,0 +1,96 @@
+= Class: `Approximator`
+
+This class represents a neural network designed to approximate a function using a feedforward architecture with one hidden layer and a Levenberg-Marquardt training algorithm.
+
+== Methods
+
+=== Method: `_generate_weights`
+
+Generates the weight matrices for the input-to-hidden and hidden-to-output layers.
+
+*Returns*: A matrix of random weights.
+
+=== Method: `_generate_neurons`
+
+Generates the neuron matrices for the input, hidden, and output layers, initializing them with zeros.
+
+*Returns*: A matrix of neurons initialized to zero, with bias terms set to 1.
+
+=== Method: `__init__`
+
+Initializes the neural network with the specified input size, training set size, and tunable parameters `k1` and `k2`, which influence the hidden layer size.
+
+*Parameters*:
+
+- `input_size`:: The number of input dimensions of the function to approximate. Default is 1.
+- `training_set_size`:: The number of training samples, which influences the hidden layer size. Default is 1000.
+- `k1`:: A tunable parameter that influences the hidden layer size. Default is 1.
+- `k2`:: A tunable parameter that influences the hidden layer size. Default is 1.
+
+=== Method: `_sigmoid`
+
+The sigmoid activation function.
+
+*Returns*: The sigmoid of the input value.
+
+=== Method: `_sigmoid_derivative`
+
+Calculates the derivative of the sigmoid function.
+
+*Returns*: The derivative of the sigmoid for a given input.
+
+=== Method: `_linear`
+
+The linear activation function used for the output layer.
+
+*Returns*: The input value, since the linear activation is the identity function.
+
+=== Method: `_linear_derivative`
+
+Calculates the derivative of the linear activation function.
+
+*Returns*: `1`, as the derivative of a linear function is always 1.
+
+=== Method: `train`
+
+Trains the neural network using the Levenberg-Marquardt algorithm.
+
+*Parameters*:
+
+- `data`:: A list of tuples (x, y) representing the training samples.
+- `epochs_num`:: The number of epochs to train. Default is 1000.
+- `lm_param`:: The initial Levenberg-Marquardt parameter (lambda). Default is 0.00001.
+
+*Returns*: The mean squared error (MSE) after training.
+
+=== Method: `predict`
+
+Predicts the output for a given input vector `x`.
+
+*Parameters*:
+
+- `x`:: Input vector for which to predict the output.
+
+*Returns*: The predicted output value.
+
+=== Method: `test`
+
+Tests the neural network on a given dataset and computes the mean squared error.
+
+*Parameters*:
+
+- `test_data`:: A list of tuples (x, y) representing test samples.
+
+*Returns*: The mean squared error of the predictions.
+
+=== Method: `download_weights_biases`
+
+Returns the weights and biases for each layer in the neural network.
+
+*Returns*: A tuple of lists representing the weights and biases for each layer.
+
+=== Method: `info`
+
+Displays the architecture of the neural network in a formatted table. Shows the number of parameters for the input, hidden, and output layers, as well as the total parameter count.
+
+*Returns*: None.

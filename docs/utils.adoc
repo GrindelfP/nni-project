@@ -1,0 +1,28 @@
+= Utils functions and classes: Documentation =
+
+== Function: `f`
+
+Calculates the natural logarithm of a given number.
+
+=== Parameters
+
+* `x`: The input value for which the natural logarithm is computed. Must be a positive number.
+
+=== Returns
+
+The natural logarithm of the input value.
+
+== Function: `generate_dataset`
+
+Generates a dataset of random values and their corresponding function outputs.
+
+=== Parameters
+
+* `size`: The number of data points to generate.
+* `func`: A function that takes a float as input and returns a float as output. This function will be applied to each random value generated.
+* `lower`: The lower bound for the range from which random values are generated. Defaults to 0.
+* `upper`: The upper bound for the range from which random values are generated. Defaults to 1.
+
+=== Returns
+
+A list of tuples where each tuple contains a random float and the result of applying the `func` to that float.
